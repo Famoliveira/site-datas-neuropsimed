@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendário NeuroPsimed 2025</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <!-- Substituí o título pelo logo. Crie o arquivo "logo_neuropsimed.png" (PNG, 200 x 60px) e coloque-o na pasta -->
+        <a href="#" data-target="page-calendario">
+          <img src="logo_neuropsimed.png" alt="NeuroPsimed Logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="nav-link active" data-target="page-calendario">Calendário</a></li>
+          <li><a href="#" class="nav-link" data-target="page-sobre">Sobre nós</a></li>
+          <!-- Removi "Serviços" e atualizei "Contato" -->
+          <li><a href="https://bit.ly/AgendarconsultaNeuropsimed" class="nav-link" target="_blank">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Seção Calendário -->
+      <section id="page-calendario">
+        <div class="hero">
+          <div class="hero-content">
+            <h2>Agenda NeuroPsimed 2025</h2>
+            <p>Eventos e datas importantes relacionados à saúde mental e bem-estar</p>
+          </div>
+        </div>
+
+        <section class="current-date">
+          <div id="today-container">
+            <h3>Hoje</h3>
+            <div id="today-date">Carregando data...</div>
+          </div>
+        </section>
+
+        <section class="upcoming-events">
+          <h3>Próximos Eventos</h3>
+          <div id="upcoming-events-container">
+            <div class="event-loader">Carregando próximos eventos...</div>
+          </div>
+        </section>
+
+        <section class="calendar-tabs">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="specific-dates">Datas Específicas</button>
+            <button class="tab-btn" data-tab="monthly-campaigns">Campanhas Mensais</button>
+          </div>
+          
+          <div class="tab-content active" id="specific-dates">
+            <div class="month-grid" id="specific-dates-grid">
+              <!-- Será preenchido via JavaScript -->
+            </div>
+          </div>
+          
+          <div class="tab-content" id="monthly-campaigns">
+            <div class="campaigns-list" id="monthly-campaigns-list">
+              <!-- Será preenchido via JavaScript -->
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Seção Sobre Nós -->
+      <section id="page-sobre" style="display: none;">
+        <div class="sobre-content">
+          <h2>Sobre Nós – NeuroPsimed</h2>
+          <p>Na <strong>NeuroPsimed</strong>, acreditamos que a saúde mental é a base para uma vida equilibrada e plena. Nosso compromisso é oferecer um atendimento humanizado e acessível, conectando você a profissionais qualificados, como <strong>neuropsicólogos, psicólogos e nutricionistas</strong>, para ajudá-lo a alcançar bem-estar e autoconhecimento.</p>
+          <p>Com uma abordagem baseada em ciência e empatia, buscamos tornar o cuidado com a mente parte do dia a dia, oferecendo conteúdos informativos, dicas práticas e serviços especializados que fazem a diferença na vida de nossos pacientes.</p>
+          <p>Nosso time conta com especialistas dedicados, sempre prontos para ouvir, orientar e acompanhar cada jornada de transformação. Além disso, nossa identidade visual e presença digital são cuidadosamente desenvolvidas por <strong>Sotto (Sotto91) e Gustavo (Famoliveira)</strong>, responsáveis pelos designs que dão vida à nossa missão e tornam a informação mais acessível e atrativa.</p>
+          <p>Na NeuroPsimed, você encontra apoio para construir uma mente mais saudável e uma vida mais leve. 💙</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NeuroPsimed - Criado por <a href="https://www.instagram.com/famoliveira_/" target="_blank">Famoliveira</a></p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/clinicaneuropsimed/" aria-label="Instagram da NeuroPsimed" target="_blank" class="social-link">
+          <img src="instagram_icon.png" alt="Instagram" class="icon">
+          <span>@clinicaneuropsimed</span>
+        </a>
+        <a href="https://www.instagram.com/famoliveira_/" aria-label="Instagram do Famoliveira" target="_blank" class="social-link">
+          <img src="instagram_icon.png" alt="Instagram" class="icon">
+          <span>@famoliveira_</span>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
