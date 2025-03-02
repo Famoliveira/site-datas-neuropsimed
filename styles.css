@@ -94,6 +94,12 @@ nav a:hover, nav a.active {
     transition: var(--transition);
 }
 
+/* Reduzir o tamanho do ícone de modo claro/escuro */
+#dark-mode-toggle img {
+    width: 36px; /* Era 48px */
+    height: 36px; /* Era 48px */
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -505,7 +511,7 @@ footer a:hover {
     color: var(--secondary-color);
 }
 
-.social-icons {
+social-icons {
     display: flex;
     gap: 1.5rem;
     align-items: center;
@@ -604,6 +610,12 @@ footer a:hover {
     .social-icons {
         flex-direction: column;
     }
+
+    /* Ajustar o tamanho do texto da data em dispositivos móveis */
+    #today-date {
+        font-size: 0.9rem; /* Reduzir tamanho da fonte em mobile */
+        word-break: break-word; /* Permite quebra de palavra se necessário */
+    }
 }
 
 /* Ajustes no header para mobile */
@@ -613,12 +625,24 @@ footer a:hover {
         padding: 1rem;
         gap: 1.5rem;
         width: 100%;
+        position: relative;
     }
 
     .header-right {
         width: 100%;
         flex-direction: column;
         gap: 1rem;
+        align-items: center; /* Centralizar itens */
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .logo img {
+        height: 65px; /* Aumentado de 50px */
     }
 
     nav {
@@ -632,48 +656,47 @@ footer a:hover {
         gap: 0.5rem;
     }
 
-    nav a {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.9rem;
-    }
-
-    .logo img {
-        height: 50px;
-    }
-
     .dark-mode-toggle {
-        position: absolute;
-        top: 1rem;
+        position: fixed; /* Mudado de absolute para fixed */
+        bottom: 5rem; /* Posiciona acima do footer */
         right: 1rem;
+        z-index: 1000; /* Garantir que fique acima de outros elementos */
+        background: var(--card-color); /* Adicionar fundo */
+        border-radius: 50%; /* Fazer circular */
+        padding: 0.5rem; /* Adicionar padding */
+        box-shadow: var(--shadow); /* Adicionar sombra */
+        transition: var(--transition);
+        opacity: 0.8; /* Deixa levemente transparente */
+    }
+
+    .dark-mode-toggle:hover {
+        opacity: 1; /* Volta à opacidade total ao passar o mouse */
+    }
+
+    #dark-mode-toggle {
+        padding: 0.25rem;
     }
 
     #dark-mode-toggle img {
-        width: 36px;
-        height: 36px;
+        width: 32px; /* Reduz um pouco mais o tamanho */
+        height: 32px;
+    }
+
+    #dark-mode-toggle img {
+        width: 26px; /* Reduzido para ficar mais proporcional */
+        height: 26px;
     }
 }
 
 /* Ajustes específicos para telas menores */
 @media (max-width: 425px) {
-    .container {
-        padding: 0.5rem;
+    .logo img {
+        height: 60px;
     }
 
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .event-card, .month-card, .campaign-card {
-        padding: 1rem;
-    }
-
-    .month-grid, .campaigns-list {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    #dark-mode-toggle img {
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -688,7 +711,17 @@ footer a:hover {
     }
 
     #today-date {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .logo img {
+        height: 55px;
+    }
+
+    #dark-mode-toggle img {
+        width: 22px;
+        height: 22px;
     }
 }
 
@@ -708,6 +741,31 @@ footer a:hover {
 
     .event-card, .month-card, .campaign-card {
         padding: 0.75rem;
+    }
+
+    #today-date {
+        font-size: 0.75rem; /* Um pouco maior que antes */
+        letter-spacing: -0.2px; /* Menos comprimido que antes */
+        line-height: 1.4;
+        padding: 0 2px; /* Adiciona um pequeno padding lateral */
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .dark-mode-toggle {
+        bottom: 4rem; /* Um pouco mais próximo do footer */
+    }
+
+    #dark-mode-toggle img {
+        width: 28px; /* Ainda menor para telas pequenas */
+        height: 28px;
+    }
+
+    #dark-mode-toggle img {
+        width: 20px;
+        height: 20px;
     }
 }
 
