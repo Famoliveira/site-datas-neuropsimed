@@ -223,4 +223,31 @@ document.addEventListener('DOMContentLoaded', function() {
             monthCard.style.display = hasVisible ? 'block' : 'none';
         });
     });
+
+    // =========================
+    // Funcionalidade do Modo Noturno
+    // =========================
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+
+    // Verifica a preferência salva no localStorage
+    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        darkModeIcon.src = 'icon-noite.png';
+        darkModeIcon.alt = 'Modo Noturno';
+    }
+
+    darkModeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            darkModeIcon.src = 'icon-noite.png';
+            darkModeIcon.alt = 'Modo Noturno';
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            darkModeIcon.src = 'icon-dia.png';
+            darkModeIcon.alt = 'Modo Claro';
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
 });
