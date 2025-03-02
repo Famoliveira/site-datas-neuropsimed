@@ -232,10 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Verifica a preferência salva no localStorage
     const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+    const logo = document.getElementById('logoNeuroPsimed');
     if (isDarkMode) {
         document.body.classList.add('dark-mode');
         darkModeIcon.src = 'icon-noite.png';
         darkModeIcon.alt = 'Modo Noturno';
+        logo.src = 'logo_neuropsimed_dark.png';
     }
 
     darkModeToggle.addEventListener('click', function() {
@@ -243,11 +245,30 @@ document.addEventListener('DOMContentLoaded', function() {
         if (document.body.classList.contains('dark-mode')) {
             darkModeIcon.src = 'icon-noite.png';
             darkModeIcon.alt = 'Modo Noturno';
+            logo.src = 'logo_neuropsimed_dark.png';
             localStorage.setItem('darkMode', 'enabled');
         } else {
             darkModeIcon.src = 'icon-dia.png';
             darkModeIcon.alt = 'Modo Claro';
+            logo.src = 'logo_neuropsimed_light.png';
             localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+
+    // Listener para quando clicar na logo - volta para a aba Calendário
+    const logoLink = document.querySelector('.logo a');
+    logoLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Remove classe ativa de todos os links de navegação
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        // Esconde todas as seções do main
+        document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
+        // Exibe a seção Calendário
+        document.getElementById('page-calendario').style.display = 'block';
+        // Adiciona a classe ativa no link Calendário
+        const calendarNavLink = document.querySelector('.nav-link[data-target="page-calendario"]');
+        if (calendarNavLink) {
+            calendarNavLink.classList.add('active');
         }
     });
 });

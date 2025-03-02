@@ -682,3 +682,9 @@ body.dark-mode .month-card:hover {
 body.dark-mode footer {
     border-top: 1px solid #444;
 }
+
+body.dark-mode #event-search {
+    background-color: #333333;
+    color: #e0e0e0;
+    border: 1px solid #555555;
+}
