@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Calendário NeuroPsimed 2025</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,6 @@
           <img id="logoNeuroPsimed" src="logo_neuropsimed_light.png" alt="NeuroPsimed Logo">
         </a>
       </div>
-      <!-- Novo container para alinhar à direita -->
       <div class="header-right">
         <nav>
           <ul>
@@ -27,9 +26,8 @@
             <li><a href="https://bit.ly/AgendarconsultaNeuropsimed" class="nav-link" target="_blank">Agendar</a></li>
           </ul>
         </nav>
-        <!-- Botão de Modo Noturno -->
         <div class="dark-mode-toggle">
-          <button id="dark-mode-toggle">
+          <button id="dark-mode-toggle" aria-label="Alternar modo escuro">
             <img src="icon-dia.png" alt="Modo Claro" id="dark-mode-icon" width="48" height="48">
           </button>
         </div>

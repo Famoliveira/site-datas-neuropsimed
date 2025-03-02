@@ -271,4 +271,29 @@ document.addEventListener('DOMContentLoaded', function() {
             calendarNavLink.classList.add('active');
         }
     });
+
+    // Ajuste para melhor experiência em dispositivos móveis
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Em telas pequenas, fecha o menu após clicar (se houver um menu mobile)
+            if (window.innerWidth <= 768) {
+                // Se você adicionar um menu hamburger no futuro
+                // menuMobile.classList.remove('active');
+            }
+        });
+    });
+
+    // Prevenir zoom em inputs em dispositivos iOS
+    document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+    });
+
+    // Ajuste de altura para dispositivos móveis (fix para 100vh em mobile)
+    function setMobileHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    setMobileHeight();
+    window.addEventListener('resize', setMobileHeight);
 });
