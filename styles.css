@@ -688,8 +688,13 @@ social-icons {
     }
 }
 
-/* Ajustes específicos para telas menores */
+/* Ajustes intermediários entre Mobile L (425px) e Mobile M (375px) */
 @media (max-width: 425px) {
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.7rem;
+    }
+
     .logo img {
         height: 60px;
     }
@@ -697,6 +702,17 @@ social-icons {
     #dark-mode-toggle img {
         width: 24px;
         height: 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    nav a {
+        font-size: 0.87rem;
+        padding: 0.4rem 0.65rem;
+    }
+
+    .logo img {
+        height: 58px;
     }
 }
 
@@ -722,6 +738,18 @@ social-icons {
     #dark-mode-toggle img {
         width: 22px;
         height: 22px;
+    }
+}
+
+/* Ajustes intermediários entre Mobile M (375px) e Mobile S (320px) */
+@media (max-width: 350px) {
+    nav a {
+        font-size: 0.82rem;
+        padding: 0.35rem 0.55rem;
+    }
+
+    .logo img {
+        height: 52px;
     }
 }
 
