@@ -57,10 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
         { month: 'Dezembro', title: 'Dezembro Laranja', description: 'Combate ao câncer de pele', color: '#ff9800', emoji: '🧡' }
     ];
 
-    // Definir data atual (usando 1 de Março de 2025 como base)
-    const currentDate = new Date(2025, 2, 1);
+    // Atualizar para pegar a data REAL do sistema
+    const currentDate = new Date(); // Data atual do usuário
+    const currentYear = 2025; // Ano fixo para os eventos (calendário 2025)
+
+    // Atualizar a exibição da data atual
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('today-date').textContent = currentDate.toLocaleDateString('pt-BR', options);
+    const todayElement = document.getElementById('today-date');
+    
+    // Formatar com ano fixo 2025 mantendo o dia/mês atual
+    const todayForDisplay = new Date(currentYear, currentDate.getMonth(), currentDate.getDate());
+    todayElement.textContent = todayForDisplay.toLocaleDateString('pt-BR', options);
 
     function compareDates(date1, date2) {
         return (
@@ -70,17 +77,22 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
+    // Função para criar datas dos eventos sempre em 2025
     function getEventDate(event) {
         const monthMap = {
             'Janeiro': 0, 'Fevereiro': 1, 'Março': 2, 'Abril': 3,
             'Maio': 4, 'Junho': 5, 'Julho': 6, 'Agosto': 7,
             'Setembro': 8, 'Outubro': 9, 'Novembro': 10, 'Dezembro': 11
         };
-        return new Date(2025, monthMap[event.month], event.day);
+        return new Date(currentYear, monthMap[event.month], event.day);
     }
 
+    // Data de comparação (usando ano 2025 com mês/dia atual)
+    const comparisonDate = new Date(currentYear, currentDate.getMonth(), currentDate.getDate());
+
+    // Ordenar e filtrar eventos
     const sortedEvents = [...specificDates].sort((a, b) => getEventDate(a) - getEventDate(b));
-    const upcomingEvents = sortedEvents.filter(event => getEventDate(event) >= currentDate).slice(0, 3);
+    const upcomingEvents = sortedEvents.filter(event => getEventDate(event) >= comparisonDate).slice(0, 3);
     const upcomingEventsContainer = document.getElementById('upcoming-events-container');
     upcomingEventsContainer.innerHTML = '';
 
@@ -181,6 +193,34 @@ document.addEventListener('DOMContentLoaded', function() {
             // Exibe a seção alvo
             const target = this.getAttribute('data-target');
             document.getElementById(target).style.display = 'block';
+        });
+    });
+
+    // Atualizar hover dos cards para melhor feedback
+    document.querySelectorAll('.event-card, .month-card, .campaign-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+            }, 200);
+        });
+    });
+
+    // Adicionar efeito de pesquisa em tempo real
+    document.getElementById('event-search').addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        document.querySelectorAll('.month-card').forEach(monthCard => {
+            const events = monthCard.querySelectorAll('li');
+            let hasVisible = false;
+            
+            events.forEach(event => {
+                const text = event.textContent.toLowerCase();
+                event.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                if (text.includes(searchTerm)) hasVisible = true;
+            });
+
+            monthCard.style.display = hasVisible ? 'block' : 'none';
         });
     });
 });

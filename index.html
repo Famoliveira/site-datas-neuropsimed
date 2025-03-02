@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
   <div class="container">
     <header>
       <div class="logo">
-        <!-- Substituí o título pelo logo. Crie o arquivo "logo_neuropsimed.png" (PNG, 200 x 60px) e coloque-o na pasta -->
         <a href="#" data-target="page-calendario">
           <img src="logo_neuropsimed.png" alt="NeuroPsimed Logo em PNG">
         </a>
@@ -22,8 +22,7 @@
         <ul>
           <li><a href="#" class="nav-link active" data-target="page-calendario">Calendário</a></li>
           <li><a href="#" class="nav-link" data-target="page-sobre">Sobre nós</a></li>
-          <!-- Removi "Serviços" e atualizei "Contato" -->
-          <li><a href="https://bit.ly/AgendarconsultaNeuropsimed" class="nav-link" target="_blank">Contato</a></li>
+          <li><a href="https://bit.ly/AgendarconsultaNeuropsimed" class="nav-link" target="_blank">Agendar</a></li>
         </ul>
       </nav>
     </header>
@@ -59,6 +58,9 @@
           </div>
           
           <div class="tab-content active" id="specific-dates">
+            <div class="search-box">
+              <input type="text" id="event-search" placeholder="Pesquisar eventos...">
+            </div>
             <div class="month-grid" id="specific-dates-grid">
               <!-- Será preenchido via JavaScript -->
             </div>
@@ -80,6 +82,27 @@
           <p>Com uma abordagem baseada em ciência e empatia, buscamos tornar o cuidado com a mente parte do dia a dia, oferecendo conteúdos informativos, dicas práticas e serviços especializados que fazem a diferença na vida de nossos pacientes.</p>
           <p>Nosso time conta com especialistas dedicados, sempre prontos para ouvir, orientar e acompanhar cada jornada de transformação. Além disso, nossa identidade visual e presença digital são cuidadosamente desenvolvidas por <strong>Sotto (Sotto91) e Gustavo (Famoliveira)</strong>, responsáveis pelos designs que dão vida à nossa missão e tornam a informação mais acessível e atrativa.</p>
           <p>Na NeuroPsimed, você encontra apoio para construir uma mente mais saudável e uma vida mais leve. 💙</p>
+          
+          <div class="services-section">
+            <h3>Nossos Serviços</h3>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h4>Neuropsicologia</h4>
+                <p>Avaliação e reabilitação de funções cognitivas, emocionais e comportamentais.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-icon">💭</div>
+                <h4>Psicologia</h4>
+                <p>Acompanhamento terapêutico para apoiar sua saúde mental e bem-estar emocional.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-icon">🍎</div>
+                <h4>Nutrição</h4>
+                <p>Orientação nutricional para uma alimentação equilibrada que beneficie corpo e mente.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
